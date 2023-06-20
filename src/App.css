@@ -1,3 +1,3 @@
-.App {
-  text-align: center;
+.nav-link.active {
+  text-decoration: underline;
 }
