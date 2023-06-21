@@ -26,16 +26,16 @@ const MissionList = () => {
   }
 
   return (
-    <div className="missionsCont" data-testid="mission-item">
+    <div data-testid="mission-item">
       <table className="table table-bordered table-striped">
         <thead className="tableHead">
           <tr>
-            <th className="mission">Mission</th>
-            <th className="desc">Description</th>
-            <th className="status">Status</th>
+            <th>Mission</th>
+            <th>Description</th>
+            <th>Status</th>
           </tr>
         </thead>
-        <tbody className="tableBody">
+        <tbody>
           {missions.map((mission) => (
             <tr key={mission.mission_id}>
               <td>{mission.mission_name}</td>
