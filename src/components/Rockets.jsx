@@ -9,6 +9,7 @@ const Rockets = () => {
   const rockets = useSelector(getAllRockets);
   const loading = useSelector(getLoading);
   const error = useSelector(getError);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -26,6 +27,8 @@ const Rockets = () => {
             name={rocket.name}
             image={rocket.image}
             description={rocket.description}
+            reserved={rocket.reserved}
+            id={rocket.id}
           />
         ))}
       </ul>
