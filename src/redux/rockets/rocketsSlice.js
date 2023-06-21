@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const initialState = {
   rockets: [],
-  selectedRocket: null,
+  reserved: false,
   loading: false,
   error: null,
 };
@@ -24,8 +24,21 @@ const rocketsSlice = createSlice({
   name: 'rockets',
   initialState,
   reducers: {
-    setSelectedRocket: (state, action) => {
-      state.selectedRocket = action.payload;
+    reservedRocket: (state, action) => {
+      const id = action.payload;
+      const newState = state.rockets.map((rocket) => {
+        if (rocket.id !== id) return rocket;
+        return { ...rocket, reserved: true };
+      });
+      return { ...state, rockets: newState };
+    },
+    cancelReservation: (state, action) => {
+      const id = action.payload;
+      const newState = state.rockets.map((rocket) => {
+        if (rocket.id !== id) return rocket;
+        return { ...rocket, reserved: false };
+      });
+      return { ...state, rockets: newState };
     },
   },
   extraReducers: (builder) => {
@@ -56,5 +69,5 @@ export const getSelectedRocket = (state) => state.rockets.selectedRocket;
 export const getLoading = (state) => state.rockets.loading;
 export const getError = (state) => state.rockets.error;
 
-export const { setSelectedRocket } = rocketsSlice.actions;
+export const { reservedRocket, cancelReservation } = rocketsSlice.actions;
 export default rocketsSlice.reducer;
