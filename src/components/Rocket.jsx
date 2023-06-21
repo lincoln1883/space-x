@@ -23,11 +23,11 @@ const Rocket = ({
         <div className="flex flex-col gap-3">
           <h3>{name}</h3>
           <p>
-            {reserved ? <span className="text-center fs-6 px-1 bg-primary me-1 text-white rounded-pill">Reserved</span> : ''}
+            {reserved ? <span className="text-center fs-6 px-1 bg-success me-1 text-white rounded-pill">Reserved</span> : ''}
             {description}
           </p>
           {reserved ? (
-            <button className="btn btn-danger" type="button" onClick={handleCancel}>Cancel Reservation</button>
+            <button className="btn btn-outline-danger" type="button" onClick={handleCancel}>Cancel Reservation</button>
           ) : (
             <button className="btn btn-primary" type="button" onClick={handleReserve}>Reserve Rocket</button>
           )}
