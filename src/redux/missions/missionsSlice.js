@@ -1,60 +1,50 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
+const url = 'https://api.spacexdata.com/v3/missions';
+
+export const fetchMissions = createAsyncThunk('missions/getMissions', async () => {
+  try {
+    const response = await axios.get(url);
+    return response.data;
+  } catch (err) {
+    return err;
+  }
+});
+
 const initialState = {
   missions: [],
-  selectedMission: null,
-  loading: false,
-  error: null,
+  loading: 'idle',
 };
 
-export const fetchMissions = createAsyncThunk(
-  'missions/fetchMissions',
-  async () => {
-    try {
-      const response = await axios.get('https://api.spacexdata.com/v4/missions');
-      return response.data;
-    } catch (error) {
-      return error.response.data;
-    }
-  },
-);
-
-const missionsSlice = createSlice({
+const missionsSlices = createSlice({
   name: 'missions',
   initialState,
   reducers: {
-    setSelectedMission: (state, action) => {
-      state.selectedMission = action.payload;
+    joinMission: (state, action) => {
+      const { missionId } = action.payload;
+      state.missions = state.missions.map((mission) => (
+        mission.mission_id === missionId ? { ...mission, reserved: true } : mission));
+    },
+    leaveMission: (state, action) => {
+      const { missionId } = action.payload;
+      state.missions = state.missions.map((mission) => (
+        mission.mission_id === missionId ? { ...mission, reserved: false } : mission));
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchMissions.pending, (state) => {
-      state.loading = true;
-    });
     builder.addCase(fetchMissions.fulfilled, (state, action) => {
-      state.loading = false;
-      const missions = action.payload;
-
-      const missionItems = missions.map((mission) => ({
-        id: mission.id,
-        name: mission.name,
+      const missions = action.payload.map((mission) => ({
+        mission_id: mission.mission_id,
+        mission_name: mission.mission_name,
         description: mission.description,
-        image: mission.flickr_images[0],
+        reserved: false,
       }));
-      state.missions = missionItems;
-    });
-    builder.addCase(fetchMissions.rejected, (state, action) => {
-      state.loading = false;
-      state.error = action.payload;
+      state.missions = missions;
+      state.loading = 'fulfilled';
     });
   },
 });
 
-export const getAllMissions = (state) => state.missions.missions;
-export const getSelectedMission = (state) => state.missions.selectedMission;
-export const getLoading = (state) => state.missions.loading;
-export const getError = (state) => state.missions.error;
-
-export const { setSelectedMission } = missionsSlice.actions;
-export default missionsSlice.reducer;
+export const { joinMission, leaveMission } = missionsSlices.actions;
+export default missionsSlices.reducer;
