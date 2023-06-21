@@ -26,7 +26,7 @@ const MissionList = () => {
   }
 
   return (
-    <div data-testid="mission-item">
+    <div className="container-fluid ms-5 me-5" data-testid="mission-item">
       <table className="table table-bordered table-striped">
         <thead className="tableHead">
           <tr>
@@ -47,7 +47,7 @@ const MissionList = () => {
               </td>
               <td>
                 {mission.reserved ? (
-                  <button type="button" className="button-leave btn btn-danger" onClick={() => handleLeaveMission(mission.mission_id)}>
+                  <button type="button" className="btn btn-outline-danger" onClick={() => handleLeaveMission(mission.mission_id)}>
                     Leave Mission
                   </button>
                 ) : (
