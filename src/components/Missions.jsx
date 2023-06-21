@@ -30,18 +30,18 @@ const MissionList = () => {
       <table className="table table-bordered table-striped">
         <thead className="tableHead">
           <tr>
-            <th>Mission</th>
-            <th>Description</th>
-            <th>Status</th>
+            <th><strong>Mission</strong></th>
+            <th><strong>Description</strong></th>
+            <th><strong>Status</strong></th>
           </tr>
         </thead>
         <tbody>
           {missions.map((mission) => (
             <tr key={mission.mission_id}>
-              <td>{mission.mission_name}</td>
-              <td>{mission.description}</td>
+              <td className="col-1"><strong>{mission.mission_name}</strong></td>
+              <td className="col-8">{mission.description}</td>
               <td>
-                <div className={`member ${mission.reserved ? 'activeMem' : 'not-member'}`}>
+                <div className={`member ${mission.reserved ? 'btn btn-primary px-3' : 'btn btn-secondary px-3'}`}>
                   {mission.reserved ? 'Active Member' : 'NOT A MEMBER'}
                 </div>
               </td>
@@ -53,7 +53,7 @@ const MissionList = () => {
                 ) : (
                   <button
                     type="button"
-                    className="joinM btn btn-primary"
+                    className="joinM btn btn-light px-3"
                     onClick={() => handleJoinMission(mission.mission_id)}
                   >
                     Join Mission
