@@ -13,14 +13,16 @@ const Rockets = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchRockets());
-  }, [dispatch]);
+    if (rockets.length === 0) { dispatch(fetchRockets()); }
+  }, [dispatch, rockets]);
 
   return (
     <>
-      {loading && <p className="text-center fs-2">Loading...</p>}
-      {error && <p className="text-center fs-2">{error}</p>}
-      <ul className="container-fluid d-flex flex-column ms-4 me-5">
+      {loading === 'loading' && <p className="text-center fs-2">Loading...</p>}
+      {!loading === 'succeeded' && !rockets.length && <p className="text-center fs-2">No Rockets Available...</p>}
+      {!loading === 'succeeded' && error && <p className="text-center fs-2">Something went wrong!</p>}
+      {loading === 'succeeded' && rockets.length > 0 && (
+      <ul className="container d-flex flex-column mx-auto">
         {rockets.map((rocket) => (
           <Rocket
             key={rocket.id}
@@ -32,6 +34,7 @@ const Rockets = () => {
           />
         ))}
       </ul>
+      )}
     </>
   );
 };
