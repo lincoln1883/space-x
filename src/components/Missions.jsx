@@ -33,6 +33,7 @@ const MissionList = () => {
             <th><strong>Mission</strong></th>
             <th><strong>Description</strong></th>
             <th><strong>Status</strong></th>
+            <th><strong className="d-none">Action</strong></th>
           </tr>
         </thead>
         <tbody>
