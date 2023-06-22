@@ -26,13 +26,14 @@ const MissionList = () => {
   }
 
   return (
-    <div className="container-fluid ms-5 me-5" data-testid="mission-item">
+    <div className="container mx-auto" data-testid="mission-item">
       <table className="table table-bordered table-striped">
         <thead className="tableHead">
           <tr>
             <th><strong>Mission</strong></th>
             <th><strong>Description</strong></th>
             <th><strong>Status</strong></th>
+            <th><strong className="d-none">Action</strong></th>
           </tr>
         </thead>
         <tbody>

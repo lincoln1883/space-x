@@ -8,7 +8,7 @@ const Navbar = () => (
       <div className="container-fluid">
         <NavLink className="navbar-brand ms-4 d-flex align-items-center" to="/">
           <img src={logo} alt="planet" width="70" height="70" />
-          <h1 className="ms-2">
+          <h1 className="ms-2 fs-3">
             Space Travelers&apos; Hub
           </h1>
         </NavLink>
@@ -18,13 +18,13 @@ const Navbar = () => (
         <div className="collapse navbar-collapse" id="navbarScroll">
           <ul className="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll">
             <li className="nav-item">
-              <NavLink className="nav-link" aria-current="page" to="/">Rockets</NavLink>
+              <NavLink className="nav-link text-primary" aria-current="page" to="/">Rockets</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/missions">Missions</NavLink>
+              <NavLink className="nav-link  text-primary" to="/missions">Missions</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/profile">Profile</NavLink>
+              <NavLink className="nav-link  text-primary" to="/profile">Profile</NavLink>
             </li>
           </ul>
         </div>
