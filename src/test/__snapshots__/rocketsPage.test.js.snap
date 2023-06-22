@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Rockets renders Rockets component 1`] = `
+exports[`Rockets Rockets component displays a rockets page 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>

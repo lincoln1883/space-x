@@ -1,38 +1,96 @@
 import React from 'react';
-import { render } from '@testing-library/react';
-import { Provider } from 'react-redux';
-import mockAxios from 'axios';
-import store from '../redux/store';
+import { useDispatch } from 'react-redux';
+import { render, screen, fireEvent } from '@testing-library/react';
 import Rocket from '../components/Rocket';
+import '@testing-library/jest-dom/extend-expect';
+import { reservedRocket } from '../redux/rockets/rocketsSlice';
+
+jest.mock('react-redux', () => ({
+  useDispatch: jest.fn(),
+}));
 
 describe('Rocket', () => {
-  describe('Rocket component', () => {
-    it('renders a list of rockets', () => {
-      mockAxios.get.mockResolvedValue({
-        data: [
-          {
-            id: '5e9d0d95eda69973a809d1ec',
-            name: 'Falcon 1',
-            description:
-              'The Falcon 1 was an expendable launch system privately developed and manufactured by SpaceX during 2006-2009. On 28 September 2008, Falcon 1 became the first privately-developed liquid-fuel launch vehicle to go into orbit around the Earth.',
-            images: ['https://i.imgur.com/4Xf8rvI.jpg'],
-          },
-        ],
-      });
-      const rocket = render(
-        <Provider store={store}>
-          <Rocket />
-        </Provider>,
-      );
-      expect(rocket).toMatchSnapshot();
+  const mockDispatch = jest.fn();
+
+  beforeEach(() => {
+    useDispatch.mockReturnValue(mockDispatch);
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
+  test('renders rocket details', () => {
+    const rocket = {
+      id: '1',
+      name: 'Falcon 9',
+      image: 'falcon9.jpg',
+      description: 'Powerful rocket.',
+      reserved: false,
+    };
+
+    render(
+      <Rocket
+        id={rocket.id}
+        name={rocket.name}
+        description={rocket.description}
+        image={rocket.image}
+      />,
+    );
+
+    expect(screen.getByText(rocket.name)).toBeInTheDocument();
+    expect(screen.getByText(rocket.description)).toBeInTheDocument();
+    expect(screen.getByAltText(rocket.name)).toHaveAttribute(
+      'src',
+      rocket.image,
+    );
+  });
+
+  test('renders "Reserved" badge when rocket is reserved', () => {
+    const rocket = {
+      id: '1',
+      name: 'Falcon 9',
+      image: 'falcon9.jpg',
+      description: 'Powerful rocket.',
+      reserved: true,
+    };
+
+    render(
+      <Rocket
+        id={rocket.id}
+        name={rocket.name}
+        description={rocket.description}
+        image={rocket.image}
+        reserved={rocket.reserved}
+      />,
+    );
+
+    expect(screen.getByText('Reserved')).toBeInTheDocument();
+  });
+
+  test('dispatches reservedRocket action when "Reserve Rocket" button is clicked', () => {
+    const rocket = {
+      id: '1',
+      name: 'Falcon 9',
+      image: 'falcon9.jpg',
+      description: 'Powerful rocket.',
+      reserved: false,
+    };
+
+    render(
+      <Rocket
+        id={rocket.id}
+        name={rocket.name}
+        description={rocket.description}
+        image={rocket.image}
+      />,
+    );
+
+    const reserveButton = screen.getByRole('button', {
+      name: 'Reserve Rocket',
     });
-    it('should render rocket component', () => {
-      const tree = render(
-        <Provider store={store}>
-          <Rocket />
-        </Provider>,
-      );
-      expect(tree).toMatchSnapshot();
-    });
+    fireEvent.click(reserveButton);
+
+    expect(mockDispatch).toHaveBeenCalledWith(reservedRocket(rocket.id));
   });
 });
