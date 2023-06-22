@@ -23,7 +23,7 @@ Object {
               width="70"
             />
             <h1
-              class="ms-2"
+              class="ms-2 fs-3"
             >
               Space Travelers' Hub
             </h1>
@@ -53,7 +53,7 @@ Object {
               >
                 <a
                   aria-current="page"
-                  class="nav-link active"
+                  class="nav-link text-primary active"
                   href="/"
                 >
                   Rockets
@@ -63,7 +63,7 @@ Object {
                 class="nav-item"
               >
                 <a
-                  class="nav-link"
+                  class="nav-link  text-primary"
                   href="/missions"
                 >
                   Missions
@@ -73,7 +73,7 @@ Object {
                 class="nav-item"
               >
                 <a
-                  class="nav-link"
+                  class="nav-link  text-primary"
                   href="/profile"
                 >
                   Profile
@@ -107,7 +107,7 @@ Object {
             width="70"
           />
           <h1
-            class="ms-2"
+            class="ms-2 fs-3"
           >
             Space Travelers' Hub
           </h1>
@@ -137,7 +137,7 @@ Object {
             >
               <a
                 aria-current="page"
-                class="nav-link active"
+                class="nav-link text-primary active"
                 href="/"
               >
                 Rockets
@@ -147,7 +147,7 @@ Object {
               class="nav-item"
             >
               <a
-                class="nav-link"
+                class="nav-link  text-primary"
                 href="/missions"
               >
                 Missions
@@ -157,7 +157,7 @@ Object {
               class="nav-item"
             >
               <a
-                class="nav-link"
+                class="nav-link  text-primary"
                 href="/profile"
               >
                 Profile
