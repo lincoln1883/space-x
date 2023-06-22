@@ -29,7 +29,7 @@
 
 # 📖 Space X <a name="about-project"></a>
 
-The Space X app is a project assignment of module three where we are required to build our Group Capstone Project React app. It is a simple App where you can reserve rockets and cancel reservations. It's features include React Hooks,React Router,Redux, Jest and React Testing Library.
+The Space X app is a project assignment of module three where we are required to build our Group Capstone Project React. We use Axios to make calls to a rockets API endpoint, and a missions API endpoint to fetch data, we also use Redux( useSelector and useDispatch) to update the state by reserving and cancelling missions and booking and cancelling rockets. We can navigate between pages using React router, and fetch data with useEffect, finally, we used Jest and React Testing Library to make component tests and mock API calls.
 
 ## 🛠 Built With <a name="built-with"></a>
 
