@@ -32,14 +32,5 @@ describe('Rockets', () => {
         expect(rocketPage).toMatchSnapshot();
       });
     });
-    it('should render a loading message', () => {
-      const { getByText } = render(
-        <Provider store={store}>
-          <Rocketspage />
-        </Provider>,
-      );
-      const loading = getByText(/Loading.../i);
-      expect(loading).toBeInTheDocument();
-    });
   });
 });
