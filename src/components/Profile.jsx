@@ -18,7 +18,7 @@ const Profile = () => {
           {reservedMissions.map((item) => (
             <li
               className="border border-success p-2 border-opacity-25"
-              key={item.name_id}
+              key={item.mission_id}
             >
               <p className="mb-0 fs-5">{item.mission_name}</p>
             </li>
