@@ -3,9 +3,8 @@ import axios from 'axios';
 
 const initialState = {
   rockets: [],
-  reserved: false,
-  loading: false,
-  error: null,
+  state: 'idle',
+  error: '',
 };
 
 export const fetchRockets = createAsyncThunk(
@@ -15,7 +14,7 @@ export const fetchRockets = createAsyncThunk(
       const response = await axios.get('https://api.spacexdata.com/v4/rockets');
       return response.data;
     } catch (error) {
-      return error.response.data;
+      return error.message || 'Something went wrong';
     }
   },
 );
@@ -43,10 +42,10 @@ const rocketsSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(fetchRockets.pending, (state) => {
-      state.loading = true;
+      state.status = 'loading';
     });
     builder.addCase(fetchRockets.fulfilled, (state, action) => {
-      state.loading = false;
+      state.status = 'succeeded';
       const rockets = action.payload;
 
       const rocketItem = rockets.map((rocket) => ({
@@ -54,19 +53,19 @@ const rocketsSlice = createSlice({
         name: rocket.name,
         description: rocket.description,
         image: rocket.flickr_images[0],
+        reserved: false,
       }));
       state.rockets = rocketItem;
     });
     builder.addCase(fetchRockets.rejected, (state, action) => {
-      state.loading = false;
+      state.status = 'failed';
       state.error = action.payload;
     });
   },
 });
 
 export const getAllRockets = (state) => state.rockets.rockets;
-export const getSelectedRocket = (state) => state.rockets.selectedRocket;
-export const getLoading = (state) => state.rockets.loading;
+export const getLoading = (state) => state.rockets.status;
 export const getError = (state) => state.rockets.error;
 
 export const { reservedRocket, cancelReservation } = rocketsSlice.actions;
