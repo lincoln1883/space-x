@@ -109,7 +109,7 @@ To test please execute the following command:
 - Twitter: [lincolngibson7](https://twitter.com/lincolngibson7)
 - LinkedIn: [lincoln-gibson](https://linkedin.com/in/lincoln-gibson)
 
-- ####👤 Marco Almada
+####👤 Marco Almada
 
 - GitHub: [@MarcoDDM](https://github.com/MarcoDDM)
 - Twitter: [@nerdpiola](https://twitter.com/nerdpiola)
