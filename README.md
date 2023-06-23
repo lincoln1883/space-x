@@ -3,6 +3,7 @@
 <div align="center">
 
   <h3><b>Space X</b></b></h3>
+  <img src="space-x.png" />
 
 </div>
 
@@ -107,6 +108,12 @@ To test please execute the following command:
 - GitHub: [lincoln1883](https://github.com/lincoln1883)
 - Twitter: [lincolngibson7](https://twitter.com/lincolngibson7)
 - LinkedIn: [lincoln-gibson](https://linkedin.com/in/lincoln-gibson)
+
+- ####👤 Marco Almada
+
+- GitHub: [@MarcoDDM](https://github.com/MarcoDDM)
+- Twitter: [@nerdpiola](https://twitter.com/nerdpiola)
+- LinkedIn: [Marco Almada](https://www.linkedin.com/in/marcoalmadaar/)
 
 <!-- FUTURE FEATURES -->
 
