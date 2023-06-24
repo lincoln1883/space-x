@@ -25,6 +25,15 @@ const MissionList = () => {
     return <div>Loading...</div>;
   }
 
+  const truncateText = (text, wordLimit) => {
+    const words = text.split(' ');
+    if (words.length > wordLimit) {
+      const truncatedWords = words.slice(0, wordLimit);
+      return `${truncatedWords.join(' ')}...`;
+    }
+    return text;
+  };
+
   return (
     <div className="container mx-auto table-responsive-sm overflow-x-auto" data-testid="mission-item">
       <table className="table table-bordered table-striped">
@@ -40,7 +49,10 @@ const MissionList = () => {
           {missions.map((mission) => (
             <tr key={mission.mission_id}>
               <td className="col-1"><strong>{mission.mission_name}</strong></td>
-              <td className="col-8 sm-col-1">{mission.description}</td>
+              <td className="col-8 col-sm-12">
+                { window.innerWidth < 575 ? truncateText(mission.description, 10)
+                  : mission.description }
+              </td>
               <td>
                 <div className={`member ${mission.reserved ? 'btn btn-primary px-3' : 'btn btn-secondary px-3'}`}>
                   {mission.reserved ? 'Active Member' : 'NOT A MEMBER'}
