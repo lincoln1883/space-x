@@ -23,7 +23,7 @@ Object {
               width="70"
             />
             <h1
-              class="ms-2 fs-3"
+              class="ms-2 fs-3 d-none d-sm-block"
             >
               Space Travelers' Hub
             </h1>
@@ -107,7 +107,7 @@ Object {
             width="70"
           />
           <h1
-            class="ms-2 fs-3"
+            class="ms-2 fs-3 d-none d-sm-block"
           >
             Space Travelers' Hub
           </h1>
