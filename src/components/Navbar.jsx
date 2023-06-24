@@ -8,7 +8,7 @@ const Navbar = () => (
       <div className="container-fluid">
         <NavLink className="navbar-brand ms-4 d-flex align-items-center" to="/">
           <img src={logo} alt="planet" width="70" height="70" />
-          <h1 className="ms-2 fs-3">
+          <h1 className="ms-2 fs-3 d-none d-sm-block">
             Space Travelers&apos; Hub
           </h1>
         </NavLink>

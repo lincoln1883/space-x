@@ -18,8 +18,8 @@ const Rocket = ({
 
   return (
     <>
-      <li className="d-flex gap-3 mb-4">
-        <img width="200" height="200" src={image} alt={name} />
+      <li className="flex-sm-row d-flex flex-column shadow p-3 mb-5 bg-body-tertiary rounded align-items-center gap-3 mb-4">
+        <img className="img-fluid img-thumbnail" src={image} alt={name} />
         <div className="flex flex-col gap-3">
           <h3>{name}</h3>
           <p>

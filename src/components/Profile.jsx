@@ -10,10 +10,10 @@ const Profile = () => {
   const reservedMissions = missions.filter((mission) => mission.reserved);
 
   return (
-    <div className="container d-flex justify-content-evenly ">
+    <div className="container d-flex flex-sm-row flex-column justify-content-evenly ">
       <div className="d-flex flex-column w-100 p-3">
-        <h2>My Missions</h2>
-        {reservedMissions.length === 0 && <p className="fs-4">You have no missions reserved</p>}
+        <h2 className="text-center text-sm-start">My Missions</h2>
+        {reservedMissions.length === 0 && <p className="fs-4 text-center text-sm-start">You have no missions reserved</p>}
         <ul className="container-fluid d-flex flex-column justify-content-center ps-0 me-5 list-unstyled">
           {reservedMissions.map((item) => (
             <li
@@ -26,8 +26,8 @@ const Profile = () => {
         </ul>
       </div>
       <div className="d-flex flex-column w-100 p-3">
-        <h2>My Rockets</h2>
-        {reservedRockets.length === 0 && <p className="fs-4">You have no rockets reserved</p>}
+        <h2 className="text-center text-sm-start">My Rockets</h2>
+        {reservedRockets.length === 0 && <p className="fs-4 text-center text-sm-start">You have no rockets reserved</p>}
         <ul className="container-fluid d-flex flex-column justify-content-center ps-0 me-5 list-unstyled">
           {reservedRockets.map((item) => (
             <li
