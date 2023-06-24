@@ -26,7 +26,7 @@ const MissionList = () => {
   }
 
   return (
-    <div className="container mx-auto" data-testid="mission-item">
+    <div className="container mx-auto table-responsive-sm overflow-x-auto" data-testid="mission-item">
       <table className="table table-bordered table-striped">
         <thead className="tableHead">
           <tr>
@@ -40,7 +40,7 @@ const MissionList = () => {
           {missions.map((mission) => (
             <tr key={mission.mission_id}>
               <td className="col-1"><strong>{mission.mission_name}</strong></td>
-              <td className="col-8">{mission.description}</td>
+              <td className="col-8 sm-col-1">{mission.description}</td>
               <td>
                 <div className={`member ${mission.reserved ? 'btn btn-primary px-3' : 'btn btn-secondary px-3'}`}>
                   {mission.reserved ? 'Active Member' : 'NOT A MEMBER'}
