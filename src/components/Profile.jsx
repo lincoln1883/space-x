@@ -10,7 +10,7 @@ const Profile = () => {
   const reservedMissions = missions.filter((mission) => mission.reserved);
 
   return (
-    <div className="container d-flex justify-content-evenly ">
+    <div className="container d-flex flex-sm-row flex-column justify-content-evenly ">
       <div className="d-flex flex-column w-100 p-3">
         <h2>My Missions</h2>
         {reservedMissions.length === 0 && <p className="fs-4">You have no missions reserved</p>}
