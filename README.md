@@ -39,15 +39,18 @@ The Space X app is a project assignment of module three where we are required to
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![React Router](https://img.shields.io/badge/-React%20Router-316192?style=for-the-badge&logo=react-router)
 ![Redux](https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white)
-![Bootstrap](https://img.shields.io/badge/Bootstrap_CSS-38B2AC?style=for-the-badge&logo=bootstrap-css&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)
+![Jest](https://img.shields.io/badge/-jest-%23C21325?style=for-the-badge&logo=jest&logoColor=white)
 
 <!-- Features -->
 
 ### Key Features <a name="key-features"></a>
 
-- Routing using react router.
-- App wide State Management with Redux.
-- Styling with Tailwind css
+- Routing using react-router.
+- App-wide State Management with Redux/Toolkit.
+- Styling with Bootstrap CSS.
+- Data-fetching with Axios.
+- Testing with Jest and React Testing Library.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
